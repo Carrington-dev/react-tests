@@ -12,3 +12,9 @@ test("Testing my greeting second", () => {
     const linkElement = screen.getByText(/Good Morning/i)
     expect(linkElement).toBeInTheDocument()
 })
+
+test("Testing my greeting message", () => {
+    render(<Greeting  />)
+    const linkElement = screen.getByText("How are you?")
+    expect(linkElement).toBeInTheDocument()
+})

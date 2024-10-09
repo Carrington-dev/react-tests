@@ -6,6 +6,8 @@ describe("Testing Clickables", () => {
         render(<Clickables />)
 
         const linkElement = screen.findByText(/Hello World!/i)
+        console.log(linkElement);
+        
         expect(linkElement).toBeInTheDocument()
     })
 })

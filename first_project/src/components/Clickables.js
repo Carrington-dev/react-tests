@@ -2,7 +2,7 @@ import { useState } from "react";
 
 function Clickables() {
     const { clicked, setClicked } = useState(false)
-    const onClickHandler = () => {
+    const onClickHandler = (e) => {
         setClicked(!clicked)
     }
     return ( 

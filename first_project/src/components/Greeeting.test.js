@@ -8,7 +8,7 @@ test("Testing my greeting", () => {
 })
 
 test("Testing my greeting second", () => {
-    render(<Greeting title='Good Morning' />)
+    render(<Greeting title="Good Morning" />)
     const linkElement = screen.getByText(/Good Morning/i)
     expect(linkElement).toBeInTheDocument()
 })

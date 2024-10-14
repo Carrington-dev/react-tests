@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './App.css';
 import TodoList from './components/todos/TodoList';
 import Todo from './models/Todo';
 import CreateTodo from './components/todos/CreateTodo';
+import TodoContextProvider, { TodoContext } from './store/todo-context-api';
 
 function App() {
   // const courseTitles: String[] = [
@@ -22,27 +23,15 @@ function App() {
   //   "Blockchain Technology",
   //   "Game Development Basics"
   // ];
-  const courseTitles: Todo[] = [ 
-    new Todo("Introduction to Computer Science"),
-  ]
-
-  const [todos, setCourseTitles] = useState(courseTitles)
-
-  const onCreateTodo = (title: string) => {
-    setCourseTitles((prev) => ([ new Todo(title), ...prev]))
-  }
-  const onRemoveItem = (todo: Todo) => {
-    setCourseTitles((prev) => ([ ...prev.filter((item) => item.id !== todo.id )]))
-  }
-
-  // const courses = newCourseTitles.map((course) => (new Todo(course)))
   
+  // const courses = newCourseTitles.map((course) => (new Todo(course)))
+  const { addTodo: onCreateTodo, removeTodo: onRemoveItem, todos } = useContext(TodoContext)
   
   return (
-    <div >
+    <TodoContextProvider >
       <CreateTodo onCreateTodo={onCreateTodo}  />
       <TodoList todos={todos} onRemoveItem={onRemoveItem}  />
-    </div>
+    </TodoContextProvider>
   );
 }
 

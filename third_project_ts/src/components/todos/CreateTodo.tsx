@@ -1,11 +1,17 @@
 import { useState } from "react";
 import classes from "./CreateTodo.module.css"
 
-const CreateTodo: React.FC<{ onCreateTodo: (title: String) => void }> = ({onCreateTodo }) => {
-    const [ title, setTitle ] = useState("")
+const CreateTodo: React.FC<{ onCreateTodo: (title: string) => void }> = ({onCreateTodo }) => {
+    const [ title, setTitle ] = useState<React.ComponentState>("")
     const onFormSubmit = (event: React.FormEvent) => {
         event.preventDefault()
-        onCreateTodo(title)
+        if( title !== null || +title.length !== 0 ){
+            console.log(title.length);
+            onCreateTodo(title || "New Todo")
+        }
+        else if(title.length === 0){
+            alert("Hai wena, enter something")
+        }
     }
     return (<>
         <form onSubmit={onFormSubmit} className={ classes.form }>

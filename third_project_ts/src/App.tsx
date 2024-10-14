@@ -1,24 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import TodoList from './components/todos/TodoList';
 
 function App() {
+  const courseTitles = [
+    "Introduction to Computer Science",
+    "Data Structures and Algorithms",
+    "Web Development Fundamentals",
+    "Artificial Intelligence and Machine Learning",
+    "Software Engineering Principles",
+    "Database Management Systems",
+    "Computer Networks",
+    "Operating Systems",
+    "Cybersecurity Essentials",
+    "Mobile App Development",
+    "Cloud Computing",
+    "Big Data Analytics",
+    "Human-Computer Interaction",
+    "Blockchain Technology",
+    "Game Development Basics"
+  ];
+  
+  console.log(courseTitles);
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div >
+      <TodoList courseTitles={courseTitles} />
     </div>
   );
 }

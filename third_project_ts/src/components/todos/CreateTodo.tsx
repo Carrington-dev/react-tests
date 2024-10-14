@@ -6,7 +6,6 @@ const CreateTodo: React.FC<{ onCreateTodo: (title: string) => void }> = ({onCrea
     const onFormSubmit = (event: React.FormEvent) => {
         event.preventDefault()
         if( title !== null || +title.length !== 0 ){
-            console.log(title.length);
             onCreateTodo(title || "New Todo")
         }
         else if(title.length === 0){

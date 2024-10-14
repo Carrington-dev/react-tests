@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import TodoList from './components/todos/TodoList';
+import Todo from './models/Todo';
 
 function App() {
   const courseTitles = [
@@ -20,12 +21,14 @@ function App() {
     "Blockchain Technology",
     "Game Development Basics"
   ];
+
+  const courses = courseTitles.map((course) => (new Todo(course)))
   
   console.log(courseTitles);
   
   return (
     <div >
-      <TodoList courseTitles={courseTitles} />
+      <TodoList courses={courses} />
     </div>
   );
 }

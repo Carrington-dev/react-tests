@@ -1,5 +1,6 @@
 import Todo from "../../models/Todo";
 import TodoItem from "./TodoItem";
+import classes from "./TodoList.module.css"
 
 /*
 const TodoList: React.FC<{courseTitles: String[]}> = (props) => {
@@ -12,12 +13,12 @@ const TodoList: React.FC<{courseTitles: String[]}> = (props) => {
 }
 */
 const TodoList: React.FC<{courses: Todo[]}> = (props) => {
-    console.log(props.courses);
+    // console.log(props.courses);
     
-    return ( <ul>
-        { props.courses.map((course) => (
+    return ( <ul className={ classes.todos }>
+        { props.courses.map((course, index) => (
             
-            <TodoItem  course={course} />
+            <TodoItem key={index}  course={course} />
         ))}
     </ul> );
 }

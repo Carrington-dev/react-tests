@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import TodoList from './components/todos/TodoList';
 import Todo from './models/Todo';
+import CreateTodo from './components/todos/CreateTodo';
 
 function App() {
   const courseTitles = [
@@ -22,12 +23,14 @@ function App() {
     "Game Development Basics"
   ];
 
-  const courses = courseTitles.map((course) => (new Todo(course)))
+  const [newCourseTitles, setCourseTitles] = useState(courseTitles)
+
+  const courses = newCourseTitles.map((course) => (new Todo(course)))
   
-  console.log(courseTitles);
   
   return (
     <div >
+      <CreateTodo  />
       <TodoList courses={courses} />
     </div>
   );

@@ -5,7 +5,7 @@ import Todo from './models/Todo';
 import CreateTodo from './components/todos/CreateTodo';
 
 function App() {
-  const courseTitles = [
+  const courseTitles: String[] = [
     "Introduction to Computer Science",
     "Data Structures and Algorithms",
     "Web Development Fundamentals",
@@ -25,12 +25,17 @@ function App() {
 
   const [newCourseTitles, setCourseTitles] = useState(courseTitles)
 
+  const onCreateTodo = (title: String) => {
+    // alert(title)
+    setCourseTitles((prev) => ([ title, ...prev]))
+  }
+
   const courses = newCourseTitles.map((course) => (new Todo(course)))
   
   
   return (
     <div >
-      <CreateTodo  />
+      <CreateTodo onCreateTodo={onCreateTodo}  />
       <TodoList courses={courses} />
     </div>
   );

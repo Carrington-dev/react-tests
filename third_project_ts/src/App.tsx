@@ -31,9 +31,9 @@ function App() {
   const onCreateTodo = (title: string) => {
     setCourseTitles((prev) => ([ new Todo(title), ...prev]))
   }
-  // const onRemoveItem = () => {
-  //   setCourseTitles((prev) => ([ ...prev.filter((item) => item.id !== todo.id )]))
-  // }
+  const onRemoveItem = (todo: Todo) => {
+    setCourseTitles((prev) => ([ ...prev.filter((item) => item.id !== todo.id )]))
+  }
 
   // const courses = newCourseTitles.map((course) => (new Todo(course)))
   
@@ -41,7 +41,7 @@ function App() {
   return (
     <div >
       <CreateTodo onCreateTodo={onCreateTodo}  />
-      <TodoList todos={todos}   />
+      <TodoList todos={todos} onRemoveItem={onRemoveItem}  />
     </div>
   );
 }

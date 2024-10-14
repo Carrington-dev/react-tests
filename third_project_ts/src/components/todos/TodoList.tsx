@@ -12,12 +12,12 @@ const TodoList: React.FC<{courseTitles: String[]}> = (props) => {
     </ul> );
 }
 */
-const TodoList: React.FC<{todos: Todo[]}> = (props) => {
+const TodoList: React.FC<{todos: Todo[], onRemoveItem: (todo: Todo) => void}> = (props) => {
     
     return ( <ul className={ classes.todos }>
         { props.todos.map((todo, index) => (
             
-            <TodoItem key={index}  todo={todo} onRemoveItem={ () => {} } />
+            <TodoItem key={index}  todo={todo} onRemoveItem={ props.onRemoveItem } />
         ))}
     </ul> );
 }
